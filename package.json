@@ -1,0 +1,44 @@
+{
+  "name": "@skill4agent/mcp-server",
+  "version": "0.1.0",
+  "description": "MCP Server for skill4agent - Search, view, and install AI skills",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "skill4agent-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "skill4agent",
+    "ai-skills",
+    "model-context-protocol"
+  ],
+  "author": "skill4agent",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osulivan/skill4agent-mcp-server"
+  },
+  "bugs": {
+    "url": "https://github.com/osulivan/skill4agent-mcp-server/issues"
+  },
+  "homepage": "https://skill4agent.com",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "axios": "^1.6.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
