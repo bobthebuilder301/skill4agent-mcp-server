@@ -1,6 +1,6 @@
 # @skill4agent/mcp-server
 
-[中文](https://github.com/osullivan/skill4agent-mcp-server/blob/main/README_CN.md) | English
+[中文](https://github.com/osulivan/skill4agent-mcp-server/blob/main/README_CN.md) | English
 
 MCP (Model Context Protocol) Server for skill4agent - Search, view, and install AI skills in AI conversations.
 
