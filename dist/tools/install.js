@@ -5,17 +5,14 @@ exports.installSkillHandler = installSkillHandler;
 exports.createInstallSkillTool = createInstallSkillTool;
 const zod_1 = require("zod");
 const client_js_1 = require("../api/client.js");
-// Zod schema for install_skill
 exports.installSkillSchema = zod_1.z.object({
     skillId: zod_1.z.string().describe('The skill ID to install. Can be obtained from the results returned by the search_skills or get_skill tool.'),
-    language: zod_1.z.enum(['original', 'translated']).optional().describe('Language version to install.\n- `original`: Original version (usually English), default option\n- `translated`: Translated version (usually Chinese)'),
 });
 async function installSkillHandler(args) {
     const api = (0, client_js_1.getAPIClient)();
     try {
         const result = await api.installSkill({
             skillId: args.skillId,
-            language: args.language || 'original',
         });
         return {
             content: [
@@ -51,11 +48,6 @@ function createInstallSkillTool() {
                 skillId: {
                     type: 'string',
                     description: 'The skill ID to install. Can be obtained from the results returned by the search_skills or get_skill tool.',
-                },
-                language: {
-                    type: 'string',
-                    enum: ['original', 'translated'],
-                    description: 'Language version to install.\n- `original`: Original version (usually English), default option\n- `translated`: Translated version (usually Chinese)',
                 },
             },
             required: ['skillId'],

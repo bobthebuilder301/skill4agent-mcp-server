@@ -95,13 +95,11 @@ Get installation information for a skill.
 
 **Parameters:**
 - `skillId` (required): Skill ID
-- `language` (optional): Language version, `original` (English) or `translated` (Chinese), default is `original`
 
 **Example:**
 ```json
 {
-  "skillId": "frontend-design--anthropics-skills",
-  "language": "translated"
+  "skillId": "frontend-design--anthropics-skills"
 }
 ```
 

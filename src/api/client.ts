@@ -61,12 +61,8 @@ export class APIClient {
 
   async installSkill(params: InstallSkillParams): Promise<InstallSkillResponse> {
     try {
-      const response = await this.client.post<InstallSkillResponse>(
-        '/install',
-        {
-          skillId: params.skillId,
-          language: params.language || 'original',
-        }
+      const response = await this.client.get<InstallSkillResponse>(
+        `/install?skillId=${encodeURIComponent(params.skillId)}`
       );
       return response.data;
     } catch (error) {

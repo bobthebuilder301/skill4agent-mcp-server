@@ -39,20 +39,28 @@ export interface GetSkillResponse {
 }
 export interface InstallSkillParams {
     skillId: string;
-    language?: 'original' | 'translated';
 }
 export interface InstallSkillResponse {
     skillId: string;
     skillName: string;
-    packageType: string;
-    fileSize: number;
-    downloadUrl: string;
-    npxCommand: string;
-    installPath: string;
-    note?: string;
-    noteDetail?: string;
-    requestedLanguage?: string;
-    actualLanguage?: string;
+    installMethods: {
+        npx: {
+            description: string;
+            command: Array<{
+                english_version?: string;
+                chinese_version?: string;
+            }>;
+            result: string;
+        };
+        download: {
+            description: string;
+            url: Array<{
+                english_version?: string;
+                chinese_version?: string;
+            }>;
+            result: string;
+        };
+    };
 }
 export interface APIError {
     error: string;

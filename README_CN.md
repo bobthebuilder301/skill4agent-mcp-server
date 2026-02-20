@@ -95,13 +95,11 @@ npx @skill4agent/mcp-server
 
 **参数：**
 - `skillId` (必填): skill ID
-- `language` (可选): 语言版本，`original`（英文）或 `translated`（中文），默认 `original`
 
 **示例：**
 ```json
 {
-  "skillId": "frontend-design--anthropics-skills",
-  "language": "translated"
+  "skillId": "frontend-design--anthropics-skills"
 }
 ```
 

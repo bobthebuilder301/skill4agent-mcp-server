@@ -2,10 +2,8 @@ import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { z } from 'zod';
 import { getAPIClient } from '../api/client.js';
 
-// Zod schema for install_skill
 export const installSkillSchema = z.object({
   skillId: z.string().describe('The skill ID to install. Can be obtained from the results returned by the search_skills or get_skill tool.'),
-  language: z.enum(['original', 'translated']).optional().describe('Language version to install.\n- `original`: Original version (usually English), default option\n- `translated`: Translated version (usually Chinese)'),
 });
 
 export async function installSkillHandler(
@@ -16,7 +14,6 @@ export async function installSkillHandler(
   try {
     const result = await api.installSkill({
       skillId: args.skillId,
-      language: args.language || 'original',
     });
 
     return {
@@ -53,11 +50,6 @@ export function createInstallSkillTool(): Tool {
         skillId: {
           type: 'string',
           description: 'The skill ID to install. Can be obtained from the results returned by the search_skills or get_skill tool.',
-        },
-        language: {
-          type: 'string',
-          enum: ['original', 'translated'],
-          description: 'Language version to install.\n- `original`: Original version (usually English), default option\n- `translated`: Translated version (usually Chinese)',
         },
       },
       required: ['skillId'],
